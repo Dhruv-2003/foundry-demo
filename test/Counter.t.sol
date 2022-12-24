@@ -15,10 +15,15 @@ contract CounterTest is Test {
     function testIncrement() public {
         counter.increment();
         assertEq(counter.number(), 1);
+        emit log_named_uint(
+            "The value after increment is : ",
+            counter.number()
+        );
     }
 
     function testSetNumber(uint256 x) public {
         counter.setNumber(x);
         assertEq(counter.number(), x);
+        emit log_named_uint("The set value is : ", x);
     }
 }
